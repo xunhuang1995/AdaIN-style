@@ -141,7 +141,7 @@ If you find this code useful for your research, please cite the paper:
 @article{huang2017adain,
   title={Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization},
   author={Huang, Xun and Belongie, Serge},
-  journal={arXiv},
+  journal={arXiv preprint arXiv:1703.06868},
   year={2017}
 }
 ```
