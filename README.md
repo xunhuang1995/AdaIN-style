@@ -1,7 +1,7 @@
 # AdaIN-style
 This repository contains the code (in [Torch](http://torch.ch/)) for the paper:
 
-**Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization**
+[**Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization**](https://arxiv.org/abs/1703.06868)
 <br>
 [Xun Huang](http://www.cs.cornell.edu/~xhuang/),
 [Serge Belongie](http://blogs.cornell.edu/techfaculty/serge-belongie/)
