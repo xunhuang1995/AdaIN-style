@@ -106,13 +106,13 @@ th test.lua -content input/content/newyork.jpg -style input/style/brushstrokes.j
 </p>
 
 ### Style interpolation
-It is possible to interpolate between several styles using `-styleBlendWeights` that controls the relative weight of each style. Note that you also to need to provide the same number of style images separated be commas. Example usage:
+It is possible to interpolate between several styles using `-styleInterpWeights ` that controls the relative weight of each style. Note that you also to need to provide the same number of style images separated be commas. Example usage:
 ```
 th test.lua -content input/content/avril.jpg \
 -style input/style/picasso_self_portrait.jpg,input/style/impronte_d_artista.jpg,input/style/trial.jpg,input/style/antimonocromatismo.jpg \
 -styleInterpWeights 1,1,1,1 -crop
 ```
-You should be able to reproduce the following results shown in our paper by changing `-styleBlendWeights`.
+You should be able to reproduce the following results shown in our paper by changing `-styleInterpWeights `.
 
 <p align='center'>
   <img src='examples/style_interp.jpg' height="500px">
