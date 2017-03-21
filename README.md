@@ -64,15 +64,15 @@ Use `-content` and `-style` to provide the respective path to the content and st
 th test.lua -content input/content/cornell.jpg -style input/style/woman_with_hat_matisse.jpg
 ```
 
-You can also run the code on directories of content images and style images using `-contentDir` and `-styleDir`. It will save every possible combination of content and styles to the output directory.
+You can also run the code on directories of content and style images using `-contentDir` and `-styleDir`. It will save every possible combination of content and styles to the output directory.
 
 ```
 th test.lua -contentDir input/content -styleDir input/style
 ```
 Some other options:
+* `-crop`: Center crop both content and style images beforehand.
 * `-contentSize`: New (minimum) size for the content image. Keeping the original size if set to 0.
 * `-styleSize`: New (minimum) size for the content image. Keeping the original size if set to 0.
-* `-crop`: Center crop both content and style images beforehand.
 
 To see all available options, type:
 ```
@@ -85,7 +85,7 @@ Use `-alpha` to adjust the degree of stylization. It should be a value between 0
 th test.lua -content input/content/chicago.jpg -style input/style/asheville.jpg -alpha 0.5 -crop
 ```
 
-By changing `-alpha`, you should be able to reproduce the results below.
+By changing `-alpha`, you should be able to reproduce the following results.
 
 <p align='center'>
   <img src='examples/style_weight.jpg' height="160px">
@@ -112,7 +112,7 @@ th test.lua -content input/content/avril.jpg \
 -style input/style/picasso_self_portrait.jpg,input/style/impronte_d_artista.jpg,input/style/trial.jpg,input/style/antimonocromatismo.jpg \
 -styleInterpWeights 1,1,1,1 -crop
 ```
-You should be able to reproduce the following results shown in the paper by changing `-styleBlendWeights`.
+You should be able to reproduce the following results shown in our paper by changing `-styleBlendWeights`.
 
 <p align='center'>
   <img src='examples/style_interp.jpg' height="500px">
