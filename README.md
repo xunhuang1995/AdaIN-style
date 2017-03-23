@@ -98,11 +98,11 @@ th test.lua -content input/content/newyork.jpg -style input/style/brushstrokes.j
 ```
 
 <p align='center'>
-  <img src='input/content/newyork.jpg' height="160px">
-  <img src='input/style/brushstrokes.jpg' height="160px">
+  <img src='input/content/newyork.jpg' height="200px">
+  <img src='input/style/brushstrokes.jpg' height="200px">
 </p>
 <p align='center'>
-  <img src='examples/newyork_brushstrokes_preservecolor.jpg' height="299px">
+  <img src='examples/newyork_brushstrokes_preservecolor.jpg' height="370px">
 </p>
 
 ### Style interpolation
