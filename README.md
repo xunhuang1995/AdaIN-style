@@ -152,6 +152,7 @@ This project is inspired by many existing style transfer methods and their open-
 * [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155), [Johnson](http://cs.stanford.edu/people/jcjohns/) et al. [[code](https://github.com/jcjohnson/fast-neural-style)]
 * [Texture Networks: Feed-forward Synthesis of Textures and Stylized Images](https://arxiv.org/abs/1603.03417), [Ulyanov](https://dmitryulyanov.github.io/about/) et al. [[code](https://github.com/DmitryUlyanov/texture_nets)]
 * [Improved Texture Networks: Maximizing Quality and Diversity in Feed-forward Stylization and Texture Synthesis](https://arxiv.org/abs/1701.02096), [Ulyanov](https://dmitryulyanov.github.io/about/) et al. [[code](https://github.com/DmitryUlyanov/texture_nets)]
+* [A Learned Representation For Artistic Style](https://openreview.net/forum?id=BJO-BuT1g&noteId=BJO-BuT1g), [Dumoulin](http://vdumoulin.github.io/) et al. [[code](https://github.com/tensorflow/magenta/tree/master/magenta/models/image_stylization)]
 * [Fast Patch-based Style Transfer of Arbitrary Style](https://arxiv.org/abs/1612.04337), Chen and [Schmidt](http://www.cs.ubc.ca/~schmidtm/) [[code](https://github.com/rtqichen/style-swap)]
 * [Controlling Perceptual Factors in Neural Style Transfer](https://arxiv.org/abs/1611.07865), Gatys et al. [[code](https://github.com/leongatys/NeuralImageSynthesis)]
 
