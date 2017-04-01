@@ -6,5 +6,6 @@ cd models
 # The original vgg_normalised.caffemodel can be obtained with:
 # "wget -c --no-check-certificate https://bethgelab.org/media/uploads/deeptextures/vgg_normalised.caffemodel"
 wget -c https://s3.amazonaws.com/xunhuang-public/adain/decoder.t7
+wget -c https://s3.amazonaws.com/xunhuang-public/adain/decoder-content-similar.t7
 wget -c https://s3.amazonaws.com/xunhuang-public/adain/vgg_normalised.t7
 cd .. 
