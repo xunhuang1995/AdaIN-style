@@ -149,13 +149,12 @@ I will work on improvements in [this repo](https://github.com/gsssrao/fast-artis
 bash styVid.sh input.mp4 style-dir-path
 ```
 
-This generates 1 mp4 for each image present in ```style-dir-path```. Next follow the instructions given by prompt.
+This generates 1 mp4 for each image present in ```style-dir-path```. Other video formats are also supported. Next follow the instructions given by prompt.
 
 To, change other parameters like alpha etc. edit line 53 of ```styVid.sh```:
 
 ```
-  th testVid.lua -contentDir videoprocessing/${filename} -style ${styleimage} -outputDir videoprocessing/${filename}-${stylename}
-
+th testVid.lua -contentDir videoprocessing/${filename} -style ${styleimage} -outputDir videoprocessing/${filename}-${stylename}
 ```
 
 ### Example usage
@@ -163,7 +162,7 @@ To, change other parameters like alpha etc. edit line 53 of ```styVid.sh```:
 bash styVid.sh input/videos/cutBunny.mp4 input/styleexample
 ```
 
-This will first create two folder namely ```videos``` and ```videoprocessing```. Then it will generate three mp4 files namely ```cutBunny-stylized-mondrian.mp4```, ```cutBunny-stylized-woman_with_hat_matisse.mp4``` and ```cutBunny-fix.mp4``` in ```videos``` folder. I have included the files in ```examples/Result``` folder for reference. 
+This will first create two folder namely ```videos``` and ```videoprocessing```. Then it will generate three mp4 files namely ```cutBunny-stylized-mondrian.mp4```, ```cutBunny-stylized-woman_with_hat_matisse.mp4``` and ```cutBunny-fix.mp4``` in ```videos``` folder. I have included the files in ```examples/videoutput``` folder for reference. 
 
 The individual frames and output would be present in ```videoprocessing``` folder.
 
@@ -205,6 +204,7 @@ This project is inspired by many existing style transfer methods and their open-
 * [A Learned Representation For Artistic Style](https://openreview.net/forum?id=BJO-BuT1g&noteId=BJO-BuT1g), [Dumoulin](http://vdumoulin.github.io/) et al. [[code](https://github.com/tensorflow/magenta/tree/master/magenta/models/image_stylization)]
 * [Fast Patch-based Style Transfer of Arbitrary Style](https://arxiv.org/abs/1612.04337), Chen and [Schmidt](http://www.cs.ubc.ca/~schmidtm/) [[code](https://github.com/rtqichen/style-swap)]
 * [Controlling Perceptual Factors in Neural Style Transfer](https://arxiv.org/abs/1611.07865), Gatys et al. [[code](https://github.com/leongatys/NeuralImageSynthesis)]
+* [Artistic style transfer for videos](https://arxiv.org/abs/1604.08610), Ruder et al. [[code](https://github.com/manuelruder/artistic-videos)]
 
 ## Contact
 
