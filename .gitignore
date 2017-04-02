@@ -1,0 +1,10 @@
+# Apple and windows thumbnails
+.DS_Store
+.DS_Store?
+Thumbs.db
+
+# Many other OS generated files
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
