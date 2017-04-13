@@ -38,7 +38,7 @@ RUN luarocks install cutorch && \
   luarocks install unsup
 
 # Install RiseML
-RUN apt-get install -y --no-install-recommends libssl-dev && \
+RUN apt-get install -y --no-install-recommends libssl-dev wget && \
   luarocks install riseml
 
 WORKDIR /opt/AdaIN-style
