@@ -1,21 +1,3 @@
---[[
-
-Build docker image:
-cd docker
-docker build -t adain-style-demo .
-
-Run docker image on GPU 0. Default style is used:
-docker run -e GPU=0 -e PORT=5000 -p 5000:5000 adain-style-demo
-Use GPU=-1 to run on CPU
-
-Specify the style from /opt/AdaIN-style/input/style folder:
-docker run -e GPU=0 -e PORT=5000 -p 5000:5000 adain-style-demo th demo.lua -style la_muse
-
-Test the endpoint:
-curl -F image=@input.jpg http://localhost:5000/predict -o output.jpg
-
---]]
-
 require 'torch'
 require 'unsup'
 require 'nn'
