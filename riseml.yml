@@ -3,6 +3,7 @@ deploy:
     name: riseml/torch:latest
     install:
     - luarocks install riseml
+    - luarocks install unsup
     - bash models/download_models.sh
   run:
     - th demo.lua -style la_muse
