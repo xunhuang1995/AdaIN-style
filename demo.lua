@@ -45,9 +45,9 @@ local function init()
     -- Basic options
     cmd:option('-style', 'asheville', 'Style name')
     cmd:option('-styleExt', 'jpg', 'The extension name of the style image')
-    cmd:option('-styleDir', '/opt/AdaIN-style/input/style', 'Directory path to style images')
+    cmd:option('-styleDir', '/code/input/style', 'Directory path to style images')
     cmd:option('-vgg', 'models/vgg_normalised.t7', 'Path to the VGG network')
-    cmd:option('-decoder', 'models/decoder.t7', 'Path to the decoder')
+    cmd:option('-decoder', 'models/decoder-content-similar.t7', 'Path to the decoder')
 
     -- Additional options
     cmd:option('-contentSize', 512,
