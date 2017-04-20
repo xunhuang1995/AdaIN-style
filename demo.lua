@@ -121,18 +121,26 @@ local function process(contentImgData)
     local style = opt.style -- need to be passed as a parameter from server
 
     if styleFeatures[opt.style] == nil then
-        local stylePath = paths.concat(opt.styleDir, opt.style .. '.' .. opt.styleExt)
-        print("Calculate style feature: " .. stylePath)
-        local styleImg = image.load(stylePath, 3, 'float')
-        styleImg = sizePreprocess(styleImg, opt.crop, opt.styleSize)
-        local styleFeature = getStyleFeature(styleImg)
-        styleFeatures[opt.style] = styleFeature
+        local stylePath = paths.concat(opt.styleDir, opt.style .. '.' .. opt.styleExt)        
+        if not paths.filep(stylePath) then
+            print("Style " .. stylePath .. " not found")
+        else                
+            print("Calculate style feature: " .. stylePath)
+            local styleImg = image.load(stylePath, 3, 'float')
+            styleImg = sizePreprocess(styleImg, opt.crop, opt.styleSize)
+            local styleFeature = getStyleFeature(styleImg)
+            styleFeatures[opt.style] = styleFeature
+        end
     else
         print("Use pre-calculated style feature")
     end
 
-    local output = styleTransfer(contentImg, styleFeatures[opt.style])
-    return image.compressJPG(output):storage():string()
+    local outputData = contentImgData
+    if styleFeatures[opt.style] ~= nil then
+        local output = styleTransfer(contentImg, styleFeatures[opt.style])
+        outputData = image.compressJPG(output):storage():string()
+    end
+    return outputData
 end
 
 local function main()
