@@ -1,0 +1,21 @@
+deploy:
+  image:
+    name: riseml/torch:latest
+    install:
+    - luarocks install riseml
+    - luarocks install unsup
+    - bash models/download_models.sh
+  run:
+    - th demo.lua -style la_muse
+  gpu: yes
+  input:
+    image: image/jpeg
+  output:
+    image: image/jpeg
+  demo:
+    description: Demo for the implementation of 'Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization'
+    title: Arbitrary Style Transfer Demo
+    readme:
+      content: |
+         Details on the implementation can be found in the [GitHub repository](https://github.com/xunhuang1995/AdaIN-style)
+
