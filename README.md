@@ -140,17 +140,6 @@ This generates 1 mp4 for each image present in ```style-dir-path```. Other video
 
 To change other parameters like alpha, edit line 53 of ```styVid.sh```.
 
-### Example usage
-```
-bash styVid.sh input/videos/cutBunny.mp4 input/styleexample
-```
-
-This will first create two folder namely ```videos``` and ```videoprocessing```. Then it will generate three mp4 files namely ```cutBunny-stylized-mondrian.mp4```, ```cutBunny-stylized-woman_with_hat_matisse.mp4``` and ```cutBunny-fix.mp4``` in ```videos``` folder. I have included the files in ```examples/videoutput``` folder for reference. 
-
-The individual frames and output would be present in ```videoprocessing``` folder.
-
-### Example Video
-
 An example video with some results can be seen [here](https://www.youtube.com/watch?v=vVkufidT0fc&t=1s) on youtube.
 
 ## Training
