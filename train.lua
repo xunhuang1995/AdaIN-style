@@ -1,6 +1,5 @@
 require 'torch'
 require 'nn'
-require 'dpnn'
 require 'cudnn'
 require 'cunn'
 require 'image'
@@ -12,7 +11,6 @@ require 'lib/TVLossModule'
 require 'lib/StyleINLossModule'
 require 'lib/AdaptiveInstanceNormalization';
 require 'lib/utils'
-nninit = require 'nninit'
 
 local cmd = torch.CmdLine()
 -- Basic options
@@ -22,7 +20,6 @@ cmd:option('-name', 'adain', 'Name of the checkpoint directory')
 cmd:option('-gpu', 0, 'Zero-indexed ID of the GPU to use')
 cmd:option('-nThreads', 2, 'Number of data loading threads')
 cmd:option('-activation', 'relu', 'Activation function in the decoder')
-cmd:option('-initStd', 0, 'The standard deviation of the initial decoder weights')
 
 -- Preprocessing options
 cmd:option('-finalSize', 256, 'Size of images used for training')
@@ -128,11 +125,7 @@ else
         if torch.type(layer):find('SpatialConvolution') then
             local nInputPlane, nOutputPlane = layer.nOutputPlane, layer.nInputPlane
             dec:add(nn.SpatialReflectionPadding(1, 1, 1, 1))
-            if opt.initStd == 0 then
-                dec:add(nn.SpatialConvolution(nInputPlane, nOutputPlane, 3,3, 1,1)) -- default 'Xavier' initialization
-            else
-                dec:add(nn.SpatialConvolution(nInputPlane, nOutputPlane, 3,3, 1,1):init('weight', nninit.normal, 0, opt.initStd)) -- Gaussian initialization with given s.t.d.
-            end
+            dec:add(nn.SpatialConvolution(nInputPlane, nOutputPlane, 3,3, 1,1))
             dec:add(decoderActivation())
         end
         if torch.type(layer):find('MaxPooling') then
