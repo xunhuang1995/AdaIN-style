@@ -29,7 +29,6 @@ function extractImageNamesRecursive(dir)
                 local mode=lfs.attributes(fullPath,"mode")
                 if mode=="file" then
                     local filepath = paths.concat(root, entity)
-  
                     if string.find(filepath, 'jpg$')
                     or string.find(filepath, 'png$')
                     or string.find(filepath, 'jpeg$')
