@@ -43,15 +43,14 @@ This paper proposes the first real-time style transfer algorithm that can transf
 
 ## Dependencies
 * [torch7](https://github.com/torch/torch7)
-* [unsup](https://github.com/koraykv/unsup)
 
 Optionally:
 * CUDA and cuDNN
 * [cunn](https://github.com/torch/cunn)
 * [torch.cudnn](https://github.com/soumith/cudnn.torch)
+* [unsup](https://github.com/koraykv/unsup) (for color-preserved style transfer)
+* [ffmpeg](https://ffmpeg.org/) (for video)
 
-Video Stylization dependencies:
-* [ffmpeg](https://ffmpeg.org/)
 
 ## Download
 ```
@@ -60,7 +59,7 @@ bash models/download_models.sh
 
 This command will download a pre-trained decoder as well as a modified VGG-19 network. Our style transfer network consists of the first few layers of VGG, an AdaIN layer, and the provided decoder.
 
-## Usage (Image Stylization)
+## Usage
 ### Basic usage
 Use `-content` and `-style` to provide the respective path to the content and style image, for example:
 ```
@@ -132,30 +131,14 @@ th test.lua -content input/content/blonde_girl.jpg -style input/style/woman_in_p
   <img src='examples/spatial_control.jpg' height="300px">
 </p>
 
-## Usage (Video Stylization)
-### Explanation
-Currently, this does style transfer on a frame by frame basis. Style features are stored so that style image is processed only once. This creates a speedup of about 1.2-1.4x. 
-
-Note: This speedup does not happen if `-preserveColor` modifier is used.
-
-Future work:
-* Retrain network to incorporate motion information
-* Add audio support
-
-I will work on improvements in [this repo](https://github.com/gsssrao/fast-artistic-videos) and merge it back here once some major update comes.
-
-### Basic usage
-```
-bash styVid.sh input.mp4 style-dir-path
-```
-
-This generates 1 mp4 for each image present in ```style-dir-path```. Other video formats are also supported. Next follow the instructions given by prompt.
-
-To, change other parameters like alpha etc. edit line 53 of ```styVid.sh```:
-
+### Video Stylization
+Use `styVid.sh` to process videos, example usage:
 ```
 th testVid.lua -contentDir videoprocessing/${filename} -style ${styleimage} -outputDir videoprocessing/${filename}-${stylename}
 ```
+This generates 1 mp4 for each image present in ```style-dir-path```. Other video formats are also supported.
+
+To change other parameters like alpha, edit line 53 of ```styVid.sh```.
 
 ### Example usage
 ```
@@ -166,17 +149,9 @@ This will first create two folder namely ```videos``` and ```videoprocessing```.
 
 The individual frames and output would be present in ```videoprocessing``` folder.
 
-## Example Video
+### Example Video
 
 An example video with some results can be seen [here](https://www.youtube.com/watch?v=vVkufidT0fc&t=1s) on youtube.
-
-![](https://github.com/gsssrao/fast-artistic-videos/blob/master/examples/outputBunny.gif)
-
-![](https://github.com/gsssrao/fast-artistic-videos/blob/master/examples/outputStarwars.gif)
-
-### Execution Time
-
-For a 10s video with 480p resolution it takes about 2 minutes on a Titan X Maxwell GPU (12GB).
 
 ## Training
 
