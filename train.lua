@@ -68,9 +68,9 @@ if opt.styleSize == 0 then
     opt.styleSize = nil
 end
 
-assert(paths.dirp(contentDir),
+assert(paths.dirp(opt.contentDir),
     '-contentDir does not exist.')
-assert(paths.dirp(styleDir),
+assert(paths.dirp(opt.styleDir),
     '-styleDir does not exist.')
 
 if opt.display then
