@@ -136,11 +136,7 @@ Use `styVid.sh` to process videos, example usage:
 ```
 th testVid.lua -contentDir videoprocessing/${filename} -style ${styleimage} -outputDir videoprocessing/${filename}-${stylename}
 ```
-This generates 1 mp4 for each image present in ```style-dir-path```. Other video formats are also supported.
-
-To change other parameters like alpha, edit line 53 of ```styVid.sh```.
-
-An example video with some results can be seen [here](https://www.youtube.com/watch?v=vVkufidT0fc&t=1s) on youtube.
+This generates 1 mp4 for each image present in ```style-dir-path```. Other video formats are also supported. To change other parameters like alpha, edit line 53 of ```styVid.sh```. An example video with some results can be seen [here](https://www.youtube.com/watch?v=vVkufidT0fc&t=1s) on youtube.
 
 ## Training
 
