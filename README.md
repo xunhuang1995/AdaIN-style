@@ -141,7 +141,7 @@ This generates 1 mp4 for each image present in ```style-dir-path```. Other video
 ## Training
 
 1. Download [MSCOCO images](http://mscoco.org/dataset/#download) and [Wikiart images](https://www.kaggle.com/c/painter-by-numbers).
-2. Use `th train.lua -contentDir COCO_TRAIN_DIR -styleDir WIKIART_TRAIN_DIR` to start training with default hyperparameters. Replace `COCO_TRAIN_DIR` with the path to COCO training images and `WIKIART_TRAIN_DIR` with the path to Wikiart training images. The default hyperparameters are the same as the ones used to train `deocder-content-similar.t7`. To reproduce the results from `deocder.t7`, add `-styleWeight 1e-1`.
+2. Use `th train.lua -contentDir COCO_TRAIN_DIR -styleDir WIKIART_TRAIN_DIR` to start training with default hyperparameters. Replace `COCO_TRAIN_DIR` with the path to COCO training images and `WIKIART_TRAIN_DIR` with the path to Wikiart training images. The default hyperparameters are the same as the ones used to train `decoder-content-similar.t7`. To reproduce the results from `decoder.t7`, add `-styleWeight 1e-1`.
 
 ## Citation
 
