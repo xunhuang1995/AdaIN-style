@@ -169,6 +169,4 @@ This project is inspired by many existing style transfer methods and their open-
 
 ## Contact
 
-If you have any questions or suggestions about the code or the paper, feel free to reach me (xh258@cornell.edu).
-
-For any suggestions or questions about video stylization reach me at (sairao1996@gmail.com)
+If you have any questions or suggestions about the paper, feel free to reach me (xh258@cornell.edu).
