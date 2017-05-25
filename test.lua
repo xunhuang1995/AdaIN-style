@@ -201,7 +201,7 @@ for i=1,numContent do
         print('Output image saved at: ' .. savePath)
         image.save(savePath, output)
 
-        if opt.outputDirOriginal then
+        if opt.saveOriginal then
             -- also save the original images
             image.save(paths.concat(opt.outputDir, contentName .. '.' .. contentExt), contentImg)
             image.save(paths.concat(opt.outputDir, styleName .. '.' .. styleExt), styleImg)
