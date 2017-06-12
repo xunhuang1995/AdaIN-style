@@ -1,5 +1,4 @@
 require 'torch'
-require 'unsup'
 require 'nn'
 require 'image'
 require 'paths'

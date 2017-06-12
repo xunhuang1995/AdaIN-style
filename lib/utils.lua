@@ -2,6 +2,14 @@ require 'nn'
 require 'unsup'
 require 'lfs'
 
+
+local function matSqrt(x)
+    local U,D,V = torch.svd(x)
+    local result = U*(D:pow(0.5):diag())*V:t()
+    return result
+end
+
+
 -- Prepares an RGB image in [0,1] for VGG
 function getPreprocessConv()
     local mean_pixel = torch.Tensor({103.939, 116.779, 123.68})
@@ -52,14 +60,22 @@ function coral(source, target)
     assert(source:size(1) == 3)
     assert(target:size(1) == 3)
     local H, W = source:size(2), source:size(3)
-    local source_flatten = source:view(3, -1):t()
-    local target_flatten = target:view(3, -1):t()
-    local target_flatten_whitened, mean_target, P_target, invP_target = unsup.zca_whiten(target_flatten)
-    local source_flatten_whitened = unsup.zca_whiten(source_flatten)
-    local source_flatten_recolored = unsup.zca_colour(source_flatten_whitened, mean_target, P_target, invP_target)
-
-    local output = source_flatten_recolored:t():reshape(3, H, W)
-    return output
+    local source_flatten = source:view(3, -1)
+    local target_flatten = target:view(3, -1)
+    local source_flatten_mean = source_flatten:mean(2)
+    local source_flatten_std = source_flatten:std(2)
+    local source_flatten_norm = torch.cdiv(source_flatten - source_flatten_mean:expandAs(source_flatten), 
+                                source_flatten_std:expandAs(source_flatten))
+    local target_flatten_mean = target_flatten:mean(2)
+    local target_flatten_std = target_flatten:std(2)
+    local target_flatten_norm = torch.cdiv(target_flatten - target_flatten_mean:expandAs(target_flatten), 
+                                target_flatten_std:expandAs(target_flatten))
+    local source_flatten_cov_eye = source_flatten_norm * source_flatten_norm:t() + torch.eye(3):float()
+    local target_flatten_cov_eye = target_flatten_norm * target_flatten_norm:t() + torch.eye(3):float()
+    local source_flatten_norm_transfer = matSqrt(target_flatten_cov_eye) * torch.inverse(matSqrt(source_flatten_cov_eye)) * source_flatten_norm
+    local source_flatten_transfer = torch.cmul(source_flatten_norm_transfer, target_flatten_std:expandAs(source_flatten_norm)) +
+                                     target_flatten_mean:expandAs(source_flatten_norm)
+    return source_flatten_transfer:viewAs(source)
 end
 
 -- image size preprocessing

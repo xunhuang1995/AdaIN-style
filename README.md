@@ -48,7 +48,6 @@ Optionally:
 * CUDA and cuDNN
 * [cunn](https://github.com/torch/cunn)
 * [torch.cudnn](https://github.com/soumith/cudnn.torch)
-* [unsup](https://github.com/koraykv/unsup) (for color-preserved style transfer)
 * [ffmpeg](https://ffmpeg.org/) (for video)
 
 
