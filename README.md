@@ -6,7 +6,7 @@ This repository contains the code (in [Torch](http://torch.ch/)) for the paper:
 [Xun Huang](http://www.cs.cornell.edu/~xhuang/),
 [Serge Belongie](http://blogs.cornell.edu/techfaculty/serge-belongie/)
 <br>
-arXiv 2017
+ICCV 2017
 
 This paper proposes the first real-time style transfer algorithm that can transfer *arbitrary* new styles, in contrast to [a single style](https://arxiv.org/abs/1603.03417) or [32 styles](https://arxiv.org/abs/1610.07629). Our algorithm runs at 15 FPS with 512x512 images on a Pascal Titan X. This is around 720x speedup compared with the [original algorithm](https://arxiv.org/abs/1508.06576) of Gatys et al., without sacrificing any flexibility. We accomplish this with a novel *adaptive instance normalization* (AdaIN) layer, which is similar to [instance normalization](https://arxiv.org/abs/1701.02096) but with affine parameters adaptively computed from the feature representations of an arbitrary style image.
 <p align='center'>
@@ -147,24 +147,22 @@ This generates 1 mp4 for each image present in ```style-dir-path```. Other video
 If you find this code useful for your research, please cite the paper:
 
 ```
-@article{huang2017adain,
+@inproceedings{huang2017adain,
   title={Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization},
   author={Huang, Xun and Belongie, Serge},
-  journal={arXiv preprint arXiv:1703.06868},
+  booktitle={ICCV},
   year={2017}
 }
 ```
 ## Acknowledgement
 
-This project is inspired by many existing style transfer methods and their open-source implementations, such as:
+This project is inspired by many existing style transfer methods and their open-source implementations, including:
 * [Image Style Transfer Using Convolutional Neural Networks](http://www.cv-foundation.org/openaccess/content_cvpr_2016/html/Gatys_Image_Style_Transfer_CVPR_2016_paper.html), Gatys et al. [[code](https://github.com/jcjohnson/neural-style) (by [Johnson](http://cs.stanford.edu/people/jcjohns/))]
 * [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155), [Johnson](http://cs.stanford.edu/people/jcjohns/) et al. [[code](https://github.com/jcjohnson/fast-neural-style)]
-* [Texture Networks: Feed-forward Synthesis of Textures and Stylized Images](https://arxiv.org/abs/1603.03417), [Ulyanov](https://dmitryulyanov.github.io/about/) et al. [[code](https://github.com/DmitryUlyanov/texture_nets)]
 * [Improved Texture Networks: Maximizing Quality and Diversity in Feed-forward Stylization and Texture Synthesis](https://arxiv.org/abs/1701.02096), [Ulyanov](https://dmitryulyanov.github.io/about/) et al. [[code](https://github.com/DmitryUlyanov/texture_nets)]
 * [A Learned Representation For Artistic Style](https://openreview.net/forum?id=BJO-BuT1g&noteId=BJO-BuT1g), [Dumoulin](http://vdumoulin.github.io/) et al. [[code](https://github.com/tensorflow/magenta/tree/master/magenta/models/image_stylization)]
 * [Fast Patch-based Style Transfer of Arbitrary Style](https://arxiv.org/abs/1612.04337), Chen and [Schmidt](http://www.cs.ubc.ca/~schmidtm/) [[code](https://github.com/rtqichen/style-swap)]
 * [Controlling Perceptual Factors in Neural Style Transfer](https://arxiv.org/abs/1611.07865), Gatys et al. [[code](https://github.com/leongatys/NeuralImageSynthesis)]
-* [Artistic style transfer for videos](https://arxiv.org/abs/1604.08610), Ruder et al. [[code](https://github.com/manuelruder/artistic-videos)]
 
 ## Contact
 
