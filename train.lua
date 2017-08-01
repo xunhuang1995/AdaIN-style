@@ -133,6 +133,9 @@ else
         end
     end
     dec:remove()
+    dec:remove()
+    dec:remove()
+    dec:remove()
 end
 
 ---- Build encoder ----
