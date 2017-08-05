@@ -6,7 +6,7 @@ This repository contains the code (in [Torch](http://torch.ch/)) for the paper:
 [Xun Huang](http://www.cs.cornell.edu/~xhuang/),
 [Serge Belongie](http://blogs.cornell.edu/techfaculty/serge-belongie/)
 <br>
-ICCV 2017
+ICCV 2017 (**Oral**)
 
 This paper proposes the first real-time style transfer algorithm that can transfer *arbitrary* new styles, in contrast to [a single style](https://arxiv.org/abs/1603.03417) or [32 styles](https://arxiv.org/abs/1610.07629). Our algorithm runs at 15 FPS with 512x512 images on a Pascal Titan X. This is around 720x speedup compared with the [original algorithm](https://arxiv.org/abs/1508.06576) of Gatys et al., without sacrificing any flexibility. We accomplish this with a novel *adaptive instance normalization* (AdaIN) layer, which is similar to [instance normalization](https://arxiv.org/abs/1701.02096) but with affine parameters adaptively computed from the feature representations of an arbitrary style image.
 <p align='center'>
