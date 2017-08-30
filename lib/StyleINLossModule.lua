@@ -81,8 +81,8 @@ function module:updateOutput(input)
         end
 
         self.input_mean = self.mean_net:forward(input_view)
-        local input_centered = torch.add(input_view, -self.input_mean:view(N, C, 1):expand(N, C, H*W)) -- centered input
-        self.input_std = self.std_net:forward(input_centered)
+        self.input_centered = torch.add(input_view, -self.input_mean:view(N, C, 1):expand(N, C, H*W)) -- centered input
+        self.input_std = self.std_net:forward(self.input_centered)
 
         self.mean_loss = self.mean_criterion:forward(self.input_mean, self.target_mean)
         self.std_loss = self.std_criterion:forward(self.input_std, self.target_std)
@@ -111,7 +111,7 @@ function module:updateGradInput(input, gradOutput)
         local mean_grad = self.mean_criterion:backward(self.input_mean, self.target_mean)
         local std_grad = self.std_criterion:backward(self.input_std, self.target_std)
         self.gradInput = self.mean_net:backward(input_view, mean_grad)
-        local std_gradInput_centered = self.std_net:backward(input_view, std_grad)
+        local std_gradInput_centered = self.std_net:backward(self.input_centered, std_grad)
         local std_gradInput = std_gradInput_centered:add(-std_gradInput_centered:mean(3):expand(N, C, H*W))
         self.gradInput:add(std_gradInput)
         self.gradInput = self.gradInput:view(N,C,H,W)
