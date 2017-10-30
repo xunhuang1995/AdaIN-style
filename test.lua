@@ -37,7 +37,7 @@ cmd:option('-mask', '', 'Mask to apply spatial control, assume to be the path to
 opt = cmd:parse(arg)
 
 print(opt)
-if opt.gpu >= 0 then
+if opt.gpu > 0 then
     require 'cudnn'
     require 'cunn'
 end
@@ -55,7 +55,7 @@ end
 local adain = nn.AdaptiveInstanceNormalization(vgg:get(#vgg-1).nOutputPlane)
 decoder = torch.load(opt.decoder)
 
-if opt.gpu >= 0 then
+if opt.gpu > 0 then
     cutorch.setDevice(opt.gpu+1)
     vgg = cudnn.convert(vgg, cudnn):cuda()
     -- vgg:cuda()
@@ -70,7 +70,7 @@ end
 
 local function styleTransfer(content, style)
 
-    if opt.gpu >= 0 then
+    if opt.gpu > 0 then
         content = content:cuda()
         style = style:cuda()
     else
